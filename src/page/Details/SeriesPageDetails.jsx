@@ -20,7 +20,7 @@ console.log(SeriesDetails);
     <div >
     <div>
            <h1 className=' text-center text-info'>Series-Detals</h1>
-      <div className=' d-flex justify-content-evenly pb-5'>
+      <div className=' d-flex justify-content-evenly pb-5 flex-wrap'>
         <div className=' d-flex justify-content-center'><img width={"50%"} src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${SeriesDetails.backdrop_path}`} alt="" /></div>
         <div className=' w-75'>
           <h1 className=' text-white'>{SeriesDetails.name}</h1>
