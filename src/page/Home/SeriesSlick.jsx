@@ -55,7 +55,7 @@ import { getAllSeries } from "../../system/SeriesSlick";
         {series.map((e,index)=>(
         
           <div key={index}>
-                <img width='75%' className="m-4" src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${e.backdrop_path}`}  />
+                <img width='75%' className=" m-auto" src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${e.backdrop_path}`}  />
           </div>
         
           

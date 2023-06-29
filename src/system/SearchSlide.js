@@ -8,7 +8,7 @@ export const getSearchResults = createAsyncThunk("getSearchResults",async(id,thu
 
     const options = {
       method: 'GET',
-      url: 'https://api.themoviedb.org/3/search/keyword',
+      url: 'https://api.themoviedb.org/3/search/movie',
       params: {query: `${id}`, page: '1'},
       headers: {
         accept: 'application/json',

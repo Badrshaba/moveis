@@ -20,10 +20,10 @@ console.log(SeriesDetails);
     <div >
     <div>
            <h1 className=' text-center text-info'>Series-Detals</h1>
-      <div className=' d-flex justify-content-evenly pb-5 flex-wrap'>
-        <div className=' d-flex justify-content-center'><img width={"50%"} src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${SeriesDetails.backdrop_path}`} alt="" /></div>
-        <div className=' w-75'>
-          <h1 className=' text-white'>{SeriesDetails.name}</h1>
+      <div className='  pb-5 d-flex justify-content-evenly flex-wrap  '>
+        <div className=' d-flex justify-content-center col-lg-3  col-md-3'><img width={"55%"} src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${SeriesDetails.backdrop_path}`} alt="" /></div>
+        <div className=' w-75 d-flex flex-column justify-content-center col-lg-6 col-md-6'>
+          <h1 className=' text-white '>{SeriesDetails.name}</h1>
           <p className=' text-white d-flex w-50 justify-content-between'>{SeriesDetails.last_air_date} <span>[{SeriesDetails.original_language}] </span>{SeriesDetails.number_of_episodes}e </p> 
 
           <h3 className=' d-inline text-primary'>OverView : </h3>

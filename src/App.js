@@ -7,6 +7,7 @@ import Series from './page/Series/Series.jsx'
 import MoviesPageDetails from './page/Details/MoviesPageDetails.jsx'
 import SeriesPageDetails from './page/Details/SeriesPageDetails.jsx'
 import Footer from './componant/Footer.jsx'
+import LogIn from './page/logIn/LogIn.jsx'
 
 const App = () => {
   return (
@@ -21,6 +22,7 @@ const App = () => {
         <Route path='/series' element={<Series/>}/>
         <Route path='/movies/details/:id' element={<MoviesPageDetails/>}/>
         <Route path='/series/details/:id' element={<SeriesPageDetails/>}/>
+        <Route path='/login' element={<LogIn/>}/>
       </Routes>
       </div>
       <Footer/>

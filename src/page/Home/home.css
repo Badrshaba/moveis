@@ -1,0 +1,6 @@
+.navbar-toggler:focus{
+    box-shadow: none;
+}
+.searchBar{
+    height: 200px !important;
+}

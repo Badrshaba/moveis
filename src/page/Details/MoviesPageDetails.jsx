@@ -25,8 +25,8 @@ const MoviesPageDetails = () => {
       <div>
       <h1 className=' text-center text-info'>Movie-Detals</h1>
  <div className=' d-flex justify-content-evenly pb-5 flex-wrap'>
-   <div className=' d-flex justify-content-center '><img width={"50%"} src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${moviesDetails.backdrop_path}`} alt="" /></div>
-   <div className=' w-75'>
+   <div className=' d-flex justify-content-center col-lg-6 col-md-6 '><img width={"50%"} src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${moviesDetails.backdrop_path}`} alt="" /></div>
+   <div className='  col-lg-6 col-md-6'>
      <h1 className=' text-white'>{moviesDetails.original_title}</h1>
      <p className=' text-white d-flex'>{moviesDetails.release_date} <span>[{moviesDetails.original_language}] </span>{Math.trunc(moviesDetails.runtime/60)}h </p> 
 
