@@ -37,9 +37,9 @@ const LogIn = () => {
     </Form>
     
    <hr className=' text-white' />
-   <div className=' d-flex justify-content-evenly'>
-        <Button variant="dark"> <BsGithub/> Continue with Github</Button>{' '}
-        <Button variant="danger"><SiGmail/> Continue with Gmail</Button>{' '}
+   <div className=' d-flex justify-content-evenly flex-wrap'>
+        <Button className='mt-3' variant="dark"> <BsGithub/> Continue with Github</Button>{' '}
+        <Button className='mt-3'variant="danger"><SiGmail/> Continue with Gmail</Button>{' '}
         </div>
         <div className=' d-flex justify-content-center mt-5 pb-5'>
         <Button  variant="success"><BsPersonCircle className=' text-white'/> Create New Account</Button>{' '}

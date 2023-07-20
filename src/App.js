@@ -9,6 +9,7 @@ import SeriesPageDetails from './page/Details/SeriesPageDetails.jsx'
 import Footer from './componant/Footer.jsx'
 import LogIn from './page/logIn/LogIn.jsx'
 
+
 const App = () => {
   return (
     <div>

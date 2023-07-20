@@ -21,7 +21,7 @@ const Haeder = () => {
   };
   const goDetails = useNavigate();
   const goDetailsSearch = () => {
-    goDetails(`/movies`);
+    // goDetails(to={`/movies/details/${id}}`);
   };
   const unshow = () => {
     setTimeout(()=>setshow(true),500)
@@ -63,9 +63,9 @@ const Haeder = () => {
                 onKeyUp={searchResults}
                 ref={search}
               />
-              <div className=" position-absolute top-100 bg-white divSearch  overflow-y-auto">
+              <div  className=" position-absolute top-100 bg-white divSearch  overflow-y-auto">
                 {SearchResults.map((SearchResult,index) => (
-                  <div onClick={goDetailsSearch} key={index} className=" divsearch border d-flex  ">
+                  <div onClick={goDetailsSearch(SearchResult.id) } key={index} className=" divsearch border d-flex  ">
                     <Avatar alt="Remy Sharp" src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${SearchResult.backdrop_path}`}  />
                     <h5>{SearchResult.original_title}</h5>
                   </div>
