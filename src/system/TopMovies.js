@@ -8,7 +8,7 @@ export const getTopMovies = createAsyncThunk("getTopMovies",async(id,thunkAPI)=>
     try{
         const options = {
             method: 'GET',
-            url: 'https://api.themoviedb.org/3/movie/top_rated',
+            url: 'https://api.themoviedb.org/3/trending/movie/day',
             params: {language: 'en-US', page: '1'},
             headers: {
               accept: 'application/json',
@@ -43,7 +43,11 @@ const topMoveis = createSlice({
         })
         builder.addCase(getTopMovies.fulfilled,(state,action)=>{
             state.loading=false
-          state.topMoveis= action.payload.results
+        //   state.topMoveis= action.payload.results
+         let x= action.payload.results.filter((w,e)=>  e<12 )
+         state.topMoveis= x
+         
+
         })
         builder.addCase(getTopMovies.rejected,(state,action)=>{
             state.topMoveis=action.payload

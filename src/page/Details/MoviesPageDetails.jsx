@@ -11,11 +11,11 @@ const MoviesPageDetails = () => {
   const back = useNavigate();
   useEffect(()=>{
     dis(MoviesSlideDetails(id))
-  },[])
+  },[id])
   const  backHome=()=>{
-    back("/",{state:{name:"badr"}} )
+    back(-1)
   };
-   
+   console.log(moviesDetails.runtime%60);
   return (
     <div >
       {loading?
@@ -28,7 +28,8 @@ const MoviesPageDetails = () => {
    <div className=' d-flex justify-content-center col-lg-6 col-md-6 '><img width={"50%"} src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${moviesDetails.backdrop_path}`} alt="" /></div>
    <div className='  col-lg-6 col-md-6'>
      <h1 className=' text-white'>{moviesDetails.original_title}</h1>
-     <p className=' text-white d-flex'>{moviesDetails.release_date} <span>[{moviesDetails.original_language}] </span>{Math.trunc(moviesDetails.runtime/60)}h </p> 
+     <p className=' text-white d-flex'>{moviesDetails.release_date} <span>[{moviesDetails.original_language}] </span>
+       <span className=' text-success me-2 ms-2'>{Math.floor(moviesDetails.runtime/60)}{(moviesDetails.runtime%60)?<span>.{(moviesDetails.runtime%60)}</span>:console.log("ok")}</span>h </p> 
 
      <h3 className=' d-inline text-primary'>OverView : </h3>
      <p className=' d-inline text-white'>{moviesDetails.overview}</p>

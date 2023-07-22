@@ -9,9 +9,6 @@ import TopSeries from './TopSeries'
 import { useLocation } from 'react-router-dom'
 
 const Home = () => {
-  const location=useLocation()
-  
-console.log(location.state);
   return (
     <div>
         <FirstHome/>
