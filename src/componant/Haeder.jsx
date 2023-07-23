@@ -1,4 +1,4 @@
-import React, { useRef, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import Button from "react-bootstrap/Button";
 import Container from "react-bootstrap/Container";
 import Form from "react-bootstrap/Form";
@@ -28,8 +28,8 @@ const Haeder = () => {
     setTimeout(()=>setshow(true),500)
     
   };
+  
 
-  console.log(SearchResults);
   return (
     <div className=" sticky-top">
       <Navbar bg="dark" variant="dark" expand="lg" className="Collapse">
@@ -57,7 +57,7 @@ const Haeder = () => {
             </Nav>
             <Form className="d-flex">
               <Form.Control
-                type="search"
+                type="text"
                 placeholder="Search"
                 className="me-2 position-relative"
                 aria-label="Search"
@@ -66,11 +66,14 @@ const Haeder = () => {
               />
               <div  className=" position-absolute top-100 bg-white divSearch  overflow-y-auto">
                 {SearchResults.map((SearchResult,index) => (
-                  <div onClick={()=>goDetailsSearch(SearchResult.id) } key={index} className=" divsearch border d-flex align-items-center  ">
-                    <Avatar className=" me-2" alt="Remy Sharp" src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${SearchResult.backdrop_path}`}  />
-                    <h5>{SearchResult.original_title}</h5>
-                  </div>
-                ))}
+                        <div onClick={()=>goDetailsSearch(SearchResult.id) } key={index} className=" divsearch border d-flex align-items-center  ">
+                          <Avatar className=" me-2" alt="Remy Sharp" src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${SearchResult.backdrop_path}`}  />
+                          <h5>{SearchResult.original_title}</h5>
+                        </div>
+                      ))
+                }
+                
+          
               </div>
               <Button as={Link} to={"/login"} className=" ms-1" variant="outline-primary">
                 Login

@@ -8,6 +8,8 @@ import { SeriesPage } from './SeriesPageSlide'
 import { moviesDetail} from "./MoviesSlideDetails"
 import { SeriesDetail } from './SeriesSlideDetails'
 import { SearchPage } from './SearchSlide'
+import {moviesCast} from "./MoviesSlideDetails"
+import {SeriesCast} from "./SeriesSlideDetails"
 export const store = configureStore({
     reducer: {
         movies,
@@ -18,6 +20,8 @@ export const store = configureStore({
         SeriesPage,
         moviesDetail,
         SeriesDetail,
-        SearchPage
+        SearchPage,
+        moviesCast,
+        SeriesCast
     },
   })
