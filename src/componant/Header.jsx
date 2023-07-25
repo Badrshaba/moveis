@@ -10,28 +10,36 @@ import { getSearchResults } from "../system/SearchSlide";
 import "./Head.css";
 import { Avatar } from "@mui/material";
 
-const Haeder = () => {
-  const search = useRef();
+const Header = () => {
+  const [search, setsearch] = useState('ba');
   const dic = useDispatch();
   const { SearchResults } = useSelector((e) => e.SearchPage);
   const [show, setshow] = useState(false);
+
   const searchResults = (e) => {
     e.preventDefault();
-    dic(getSearchResults(search.current.value));
+    dic(getSearchResults(e.target.value));
+    setsearch(e.target.value);
+  
   };
-  const goDetails = useNavigate();
-  const goDetailsSearch = (id) => {
 
-    goDetails(`/movies/details/${id}`)
-  };
-  const unshow = () => {
-    setTimeout(()=>setshow(true),500)
+  const goDetails = useNavigate();
+
+  const goDetailsSearch = (id) => {
     
+    goDetails(`/movies/details/${id}`);
   };
+
+  const unshow = () => {
+    setshow(false);
+    // Optionally, if you want to set `show` to true after a delay
+    // setTimeout(() => setshow(true), 500);
+  };
+ 
   
 
   return (
-    <div className=" sticky-top">
+    <div className=" sticky-top" >
       <Navbar bg="dark" variant="dark" expand="lg" className="Collapse">
         <Container fluid className="Collapse">
           <Navbar.Brand onClick={unshow} as={Link} to={"/"}>
@@ -57,14 +65,14 @@ const Haeder = () => {
             </Nav>
             <Form className="d-flex">
               <Form.Control
-                type="text"
+                type="search"
                 placeholder="Search"
                 className="me-2 position-relative"
                 aria-label="Search"
-                onKeyUp={searchResults}
-                ref={search}
+                onChange={searchResults}
+                value={search}
               />
-              <div  className=" position-absolute top-100 bg-white divSearch  overflow-y-auto">
+             {<div  className=" position-absolute top-100 bg-white divSearch  overflow-y-auto">
                 {SearchResults.map((SearchResult,index) => (
                         <div onClick={()=>goDetailsSearch(SearchResult.id) } key={index} className=" divsearch border d-flex align-items-center  ">
                           <Avatar className=" me-2" alt="Remy Sharp" src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${SearchResult.backdrop_path}`}  />
@@ -74,7 +82,7 @@ const Haeder = () => {
                 }
                 
           
-              </div>
+              </div>} 
               <Button as={Link} to={"/login"} className=" ms-1" variant="outline-primary">
                 Login
               </Button>{" "}
@@ -86,4 +94,4 @@ const Haeder = () => {
   );
 };
 
-export default Haeder;
+export default Header;

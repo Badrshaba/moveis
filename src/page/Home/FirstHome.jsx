@@ -2,7 +2,7 @@ import React from 'react'
 import Button from 'react-bootstrap/Button';
 const FirstHome = () => {
   return (
-    <div>
+    <div >
         <h1 className=' text-center text-info mt-4'>Home</h1>
         <div className=' d-flex flex-wrap justify-content-evenly '>
             <div className='  col-lg-6 col-md-8  col-12 mt-3'>

@@ -4,6 +4,7 @@ import { useDispatch, useSelector } from "react-redux";
 import Slider from "react-slick";
 import { getAllMovies } from "../../system/MoviesSlice";
 import Spinner from 'react-bootstrap/Spinner';
+import "../style/home.css"
  const MoviesSlick = ()=> {
   
   const dic = useDispatch()
@@ -49,7 +50,7 @@ import Spinner from 'react-bootstrap/Spinner';
     ]
   };
     return (
-     <div className=" container mt-5 ">
+     <div className=" container mt-5 widthSlick" >
 <h2 className=" text-primary"> MOVIES</h2>
 {loading?    <div className=" d-flex justify-content-center"><Spinner animation="border" variant="light" /></div>  :<div >
   <Slider {...settings}  className=" ">

@@ -78,7 +78,7 @@ const moviesPage = createSlice({
 })
 const moviesPageCast = createSlice({
     name:"moviesPageCast",
-    initialState:{moviesCast:[],loading:false},
+    initialState:{moviesCast:[],moviesCastCrow:[],loading:false},
     extraReducers:(builder)=>{
         builder.addCase(MoviesSlideCast.pending,(state)=>{
             state.loading=true
@@ -86,9 +86,9 @@ const moviesPageCast = createSlice({
         builder.addCase(MoviesSlideCast.fulfilled,(state,action)=>{
             state.loading=false
         
-           let x= action.payload.cast.filter((w,e)=>  e<12 )
-            state.moviesCast=x
-        
+            state.moviesCast= action.payload.cast.filter((w,e)=>  e<12 )
+             state.moviesCastCrow=action.payload.crew.filter((w,e)=>  e<20 ) 
+            
          
         })
         builder.addCase(MoviesSlideCast.rejected,(state,action)=>{

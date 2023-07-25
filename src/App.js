@@ -1,5 +1,5 @@
 import React from 'react'
-import Haeder from './componant/Haeder.jsx'
+import Header from './componant/Header.jsx'
 import { Route, Routes } from 'react-router-dom'
 import Home from './page/Home/Home.jsx'
 import Movies from './page/Movies/Movies.jsx'
@@ -16,7 +16,7 @@ const App = () => {
       <div className='bg-black '>
 
      
-      <Haeder/>
+      <Header/>
       <Routes>
         <Route path='/' element={<Home/>}/>
         <Route path='/movies' element={<Movies/>}/>

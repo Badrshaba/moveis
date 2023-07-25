@@ -1,0 +1,25 @@
+@media only screen and (max-width:576px) {
+    .widthSlick{
+        width: 90% !important;
+    }
+}
+.backImg{
+    background-repeat: no-repeat !important;
+    background-position: center !important;
+    background-size: cover !important;
+    position: relative;
+    z-index: 0;
+}
+.backImg::after{
+    content: "";
+position: absolute;
+height: 100%;
+width: 100%;
+background-color: rgba(0, 0, 0, 0.47);
+top: 0;
+left: 0;
+z-index: -1;
+}
+.widthSLICK{
+    width: 90% !important;
+}

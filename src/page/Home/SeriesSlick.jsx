@@ -3,7 +3,7 @@ import React, { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
 import Slider from "react-slick";
 import { getAllSeries } from "../../system/SeriesSlick";
-
+import "../style/home.css"
  const SeriesSlick = ()=> {
   
   const dic = useDispatch()
@@ -48,7 +48,7 @@ import { getAllSeries } from "../../system/SeriesSlick";
     ]
   };
     return (
-      <div className=" container mt-5 ">
+      <div className=" container mt-5 widthSlick">
         <h2 className=" text-primary"> Series</h2>
         <div className="">
           <Slider {...settings}  className=" ">
