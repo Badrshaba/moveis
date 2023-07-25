@@ -11,7 +11,7 @@ import "./Head.css";
 import { Avatar } from "@mui/material";
 
 const Header = () => {
-  const [search, setsearch] = useState('ba');
+  const [search, setsearch] = useState('');
   const dic = useDispatch();
   const { SearchResults } = useSelector((e) => e.SearchPage);
   const [show, setshow] = useState(false);

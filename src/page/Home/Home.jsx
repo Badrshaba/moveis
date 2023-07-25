@@ -7,6 +7,7 @@ import SeriesSlick from './SeriesSlick'
 import TopMovies from './TopMovies'
 import TopSeries from './TopSeries'
 import { useLocation } from 'react-router-dom'
+import Scroll from './Scroll'
 
 const Home = () => {
   return (
@@ -14,6 +15,7 @@ const Home = () => {
         <FirstHome/>
         <MoviesSlick/>
         <SeriesSlick/>
+        <Scroll/>
         <TopMovies/>
         <TopSeries/>
        
