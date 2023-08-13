@@ -12,6 +12,7 @@ const TopSeries = () => {
     useEffect(()=>{
         dis(getTopSeries())
     },[])
+    console.log(TopSeries);
    
   return (
     <div className=' container mt-5'>

@@ -82,7 +82,7 @@ const MoviesPageDetails = () => {
                   src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${moviesDetails.backdrop_path}`}
                   alt=""
                 />
-              </div>
+              </div> 
               <div className="  col-lg-6 col-md-6">
                 <h1 className=" text-white">{moviesDetails.original_title}</h1>
                 <p className=" text-white d-flex justify-content-center">

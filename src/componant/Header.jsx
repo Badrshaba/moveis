@@ -11,7 +11,8 @@ import "./Head.css";
 import { Avatar } from "@mui/material";
 
 const Header = () => {
-  const [search, setsearch] = useState('');
+  const [ToggleNavbar, SetToggleNavbar] = useState(false);
+  const [search, setsearch] = useState("");
   const dic = useDispatch();
   const { SearchResults } = useSelector((e) => e.SearchPage);
   const [show, setshow] = useState(false);
@@ -20,32 +21,41 @@ const Header = () => {
     e.preventDefault();
     dic(getSearchResults(e.target.value));
     setsearch(e.target.value);
-  
   };
 
   const goDetails = useNavigate();
 
   const goDetailsSearch = (id) => {
-    
     goDetails(`/movies/details/${id}`);
   };
-
+  let haundelToggleNavbar = (event) => {
+    SetToggleNavbar(event);
+   
+ };
   const unshow = () => {
     setshow(false);
+    haundelToggleNavbar()
     // Optionally, if you want to set `show` to true after a delay
     // setTimeout(() => setshow(true), 500);
   };
- 
-  
 
   return (
-    <div className=" sticky-top" >
-      <Navbar bg="dark" variant="dark" expand="lg" className="Collapse">
+    <div className=" sticky-top">
+      <Navbar
+        bg="dark"
+        variant="dark"
+        expand="lg"
+        expanded={ToggleNavbar}
+        onToggle={haundelToggleNavbar}
+        className="Collapse"
+      >
         <Container fluid className="Collapse">
           <Navbar.Brand onClick={unshow} as={Link} to={"/"}>
             React movies
           </Navbar.Brand>
-          <Navbar.Toggle aria-controls="navbarScroll"  /*className={!show&&"collapsed"} onClick={()=>{setshow(false)}} *//>
+          <Navbar.Toggle
+            aria-controls="navbarScroll" /*className={!show&&"collapsed"} onClick={()=>{setshow(false)}} */
+          />
           <Navbar.Collapse id="navbarScroll" >
             {/* /**className={show&&"collapsing"} */}
             <Nav
@@ -53,10 +63,10 @@ const Header = () => {
               style={{ maxHeight: "100px" }}
               navbarScroll
             >
-              <Nav.Link as={Link} onClick={unshow} to={"/"}>
+              <Nav.Link as={Link} onClick={unshow} to={"/"} >
                 Home
               </Nav.Link>
-              <Nav.Link as={Link} onClick={unshow} to={"/movies"}>
+              <Nav.Link as={Link} onClick={unshow} to={"/movies"} >
                 Movies
               </Nav.Link>
               <Nav.Link as={Link} onClick={unshow} to={"/series"}>
@@ -72,18 +82,30 @@ const Header = () => {
                 onChange={searchResults}
                 value={search}
               />
-             {<div  className=" position-absolute top-100 bg-white divSearch  overflow-y-auto">
-                {SearchResults.map((SearchResult,index) => (
-                        <div onClick={()=>goDetailsSearch(SearchResult.id) } key={index} className=" divsearch border d-flex align-items-center  ">
-                          <Avatar className=" me-2" alt="Remy Sharp" src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${SearchResult.backdrop_path}`}  />
-                          <h5>{SearchResult.original_title}</h5>
-                        </div>
-                      ))
-                }
-                
-          
-              </div>} 
-              <Button as={Link} to={"/login"} className=" ms-1" variant="outline-primary">
+              {
+                <div className=" position-absolute top-100 bg-white divSearch  overflow-y-auto">
+                  {SearchResults.map((SearchResult, index) => (
+                    <div
+                      onClick={() => goDetailsSearch(SearchResult.id)}
+                      key={index}
+                      className=" divsearch border d-flex align-items-center  "
+                    >
+                      <Avatar
+                        className=" me-2"
+                        alt="Remy Sharp"
+                        src={`https://image.tmdb.org/t/p/w600_and_h900_bestv2${SearchResult.backdrop_path}`}
+                      />
+                      <h5>{SearchResult.original_title}</h5>
+                    </div>
+                  ))}
+                </div>
+              }
+              <Button
+                as={Link}
+                to={"/login"}
+                className=" ms-1"
+                variant="outline-primary"
+              >
                 Login
               </Button>{" "}
             </Form>

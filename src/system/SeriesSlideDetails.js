@@ -78,15 +78,16 @@ const SeriesPage = createSlice({
 })
 const SeriesPageCast = createSlice({
     name:"SeriesPageCast",
-    initialState:{SeriesCast:[],loading:false},
+    initialState:{SeriesCast:[],SeriesCrow:[],loading:false},
     extraReducers:(builder)=>{
         builder.addCase(SeriesSlideCast.pending,(state)=>{
             state.loading=true
         })
         builder.addCase(SeriesSlideCast.fulfilled,(state,action)=>{
             state.loading=false
-            let x= action.payload.cast.filter((w,e)=>  e<12 )
-            state.SeriesCast=x
+            state.SeriesCast= action.payload.cast.filter((w,e)=>  e<12 ) 
+            state.SeriesCrow=action.payload.crew
+            
         })
         builder.addCase(SeriesSlideCast.rejected,(state,action)=>{
             state.SeriesCast=action.payload

@@ -86,7 +86,7 @@ const moviesPageCast = createSlice({
         builder.addCase(MoviesSlideCast.fulfilled,(state,action)=>{
             state.loading=false
         
-            state.moviesCast= action.payload.cast.filter((w,e)=>  e<12 )
+            state.moviesCast= action.payload.cast
              state.moviesCastCrow=action.payload.crew.filter((w,e)=>  e<20 ) 
             
          

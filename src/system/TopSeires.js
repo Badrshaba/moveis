@@ -44,7 +44,7 @@ const TopSeries = createSlice({
         builder.addCase(getTopSeries.fulfilled,(state,action)=>{
             state.loadind=false
         //  state.TopSeries= action.payload.results
-         let x= action.payload.results.filter((w,e)=>  e<12 )
+         let x= action.payload.results.filter((w,e)=> w.backdrop_path && e<20        )
          state.TopSeries= x
         })
         builder.addCase(getTopSeries.rejected,(state,action)=>{
